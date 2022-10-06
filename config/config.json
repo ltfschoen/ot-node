@@ -41,8 +41,6 @@
                                 "type": "dual"
                             },
                             "connectionManager": {
-                                "autoDial": true,
-                                "autoDialInterval": 10e3,
                                 "dialTimeout": 2e3
                             },
                             "peerRouting": {
@@ -217,8 +215,6 @@
                                 "type": "lan"
                             },
                             "connectionManager": {
-                                "autoDial": true,
-                                "autoDialInterval": 10e3,
                                 "dialTimeout": 2e3
                             },
                             "peerRouting": {
@@ -346,8 +342,6 @@
                                 "type": "wan"
                             },
                             "connectionManager": {
-                                "autoDial": true,
-                                "autoDialInterval": 10e3,
                                 "dialTimeout": 2e3
                             },
                             "peerRouting": {
