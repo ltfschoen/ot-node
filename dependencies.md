@@ -198,7 +198,7 @@
 
 ##### [dkg-evm-module](https://www.npmjs.com/package/dkg-evm-module)
 
--   **version**: ^1.0.4
+-   **version**: ^1.0.5
 -   **description**: used to import latest ot-node smart contracts abis
 
 ##### [dotenv](https://www.npmjs.com/package/dotenv)
