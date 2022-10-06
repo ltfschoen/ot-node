@@ -4,7 +4,7 @@
 
 ##### [@cucumber/cucumber](https://www.npmjs.com/package/@cucumber/cucumber)
 
--   **version**: ^8.5.2
+-   **version**: ^8.6.0
 -   **description**: used to execute bdd tests
 
 ##### [@ethersproject/bytes](https://www.npmjs.com/package/@ethersproject/bytes)
@@ -24,12 +24,12 @@
 
 ##### [@polkadot/util](https://www.npmjs.com/package/@polkadot/util)
 
--   **version**: ^10.1.7
+-   **version**: ^10.1.9
 -   **description**: Used for creating substrate and evm accounts mapping signatures in `create-account-mapping-signature.js`
 
 ##### [@polkadot/util-crypto](https://www.npmjs.com/package/@polkadot/util-crypto)
 
--   **version**: ^10.1.7
+-   **version**: ^10.1.9
 -   **description**: Used for creating substrate and evm accounts mapping signatures in `create-account-mapping-signature.js`
 
 ##### [chai](https://www.npmjs.com/package/chai)
@@ -39,7 +39,7 @@
 
 ##### [dkg.js](https://www.npmjs.com/package/dkg.js)
 
--   **version**: ^6.0.0-beta.3.0.3
+-   **version**: ^6.0.0-beta.3.1.2
 -   **description**: dkg client used in bdd tests
 
 ##### [eslint](https://www.npmjs.com/package/eslint)
@@ -59,7 +59,7 @@
 
 ##### [ganache](https://www.npmjs.com/package/ganache)
 
--   **version**: ^7.4.1
+-   **version**: ^7.4.4
 -   **description**: ethereum simulator used in bdd tests
 
 ##### [husky](https://www.npmjs.com/package/husky)
@@ -111,22 +111,23 @@
 
 ##### [@libp2p/bootstrap](https://www.npmjs.com/package/@libp2p/bootstrap)
 
--   **version**: ^2.0.0
+-   **version**: ^3.0.0
 -   **description**: used to connect to list of boostraps
 
-##### [@libp2p/kad-dht](https://www.npmjs.com/package/@libp2p/kad-dht)
+##### [@libp2p/crypto](https://www.npmjs.com/package/@libp2p/crypto)
 
--   **version**: ^3.0.4
--   **description**: libp2p kademlia dht module
+-   **version**: ^1.0.4
+-   **description**: used to encode and decode libp2p keys
+
 
 ##### [@libp2p/mplex](https://www.npmjs.com/package/@libp2p/mplex)
 
--   **version**: ^5.0.0
+-   **version**: ^5.2.4
 -   **description**: libp2p stream multiplexer module
 
 ##### [@libp2p/peer-collections](https://www.npmjs.com/package/@libp2p/peer-collections)
 
--   **version**: ^2.0.0
+-   **version**: ^2.2.0
 -   **description**: collections that stringifies peerIds before storing them
 
 ##### [@libp2p/peer-id-factory](https://www.npmjs.com/package/@libp2p/peer-id-factory)
@@ -136,18 +137,24 @@
 
 ##### [@libp2p/tcp](https://www.npmjs.com/package/@libp2p/tcp)
 
--   **version**: ^3.0.3
+-   **version**: ^3.1.2
 -   **description**: libp2p TCP module
 
 ##### [@multiformats/multiaddr](https://www.npmjs.com/package/@multiformats/multiaddr)
 
--   **version**: ^11.0.1
+-   **version**: ^11.0.3
 -   **description**: create libp2p peers multiaddresses from string
 
 ##### [@polkadot/api](https://www.npmjs.com/package/@polkadot/api)
 
--   **version**: ^9.2.4
+-   **version**: ^9.4.3
 -   **description**: used to interact with substrate nodes
+
+##### [@tracelabs/kad-dht](https://www.npmjs.com/package/@libp2p/kad-dht)
+
+-   **version**: ^3.0.6
+-   **description**: libp2p kademlia dht module
+
 
 ##### [app-root-path](https://www.npmjs.com/package/app-root-path)
 
@@ -156,7 +163,7 @@
 
 ##### [assertion-tools](https://www.npmjs.com/package/assertion-tools)
 
--   **version**: ^1.0.8
+-   **version**: ^1.1.0
 -   **description**: various functions used by both dkg.js and ot-node
 
 ##### [async](https://www.npmjs.com/package/async)
@@ -166,7 +173,7 @@
 
 ##### [async-mutex](https://www.npmjs.com/package/async-mutex)
 
--   **version**: ^0.3.2
+-   **version**: ^0.4.0
 -   **description**: used to avoid race conditions when updating sql repository
 
 ##### [awilix](https://www.npmjs.com/package/awilix)
@@ -176,7 +183,7 @@
 
 ##### [axios](https://www.npmjs.com/package/axios)
 
--   **version**: ^0.27.2
+-   **version**: ^1.0.0
 -   **description**: http client used to make http requests
 
 ##### [cors](https://www.npmjs.com/package/cors)
@@ -191,12 +198,12 @@
 
 ##### [dkg-evm-module](https://www.npmjs.com/package/dkg-evm-module)
 
--   **version**: ^1.0.1
+-   **version**: ^1.0.4
 -   **description**: used to import latest ot-node smart contracts abis
 
 ##### [dotenv](https://www.npmjs.com/package/dotenv)
 
--   **version**: ^16.0.1
+-   **version**: ^16.0.3
 -   **description**: used for NODE_ENV variable
 
 ##### [express](https://www.npmjs.com/package/express)
@@ -211,7 +218,7 @@
 
 ##### [express-rate-limit](https://www.npmjs.com/package/express-rate-limit)
 
--   **version**: ^6.5.2
+-   **version**: ^6.6.0
 -   **description**: used to rate limit rpc requests
 
 ##### [fs-extra](https://www.npmjs.com/package/fs-extra)
@@ -256,7 +263,7 @@
 
 ##### [it-merge](https://www.npmjs.com/package/it-merge)
 
--   **version**: ^2.0.4
+-   **version**: ^1.0.4
 -   **description**: merge operation that supports iterables
 
 ##### [it-pipe](https://www.npmjs.com/package/it-pipe)
@@ -296,7 +303,7 @@
 
 ##### [libp2p](https://www.npmjs.com/package/libp2p)
 
--   **version**: ^0.38.0
+-   **version**: ^0.39.5
 -   **description**:
 
 ##### [merkletreejs](https://www.npmjs.com/package/merkletreejs)
@@ -311,7 +318,7 @@
 
 ##### [multiformats](https://www.npmjs.com/package/multiformats)
 
--   **version**: ^9.8.1
+-   **version**: ^9.9.0
 -   **description**: calculate sha256 hash of peerIds (libp2p find nodes operation)
 
 ##### [mysql2](https://www.npmjs.com/package/mysql2)
@@ -321,12 +328,12 @@
 
 ##### [pino](https://www.npmjs.com/package/pino)
 
--   **version**: ^8.4.2
+-   **version**: ^8.6.1
 -   **description**: ot-node logger implementation
 
 ##### [pino-pretty](https://www.npmjs.com/package/pino-pretty)
 
--   **version**: ^9.1.0
+-   **version**: ^9.1.1
 -   **description**: prettifier for pino logger
 
 ##### [rc](https://www.npmjs.com/package/rc)
@@ -336,27 +343,18 @@
 
 ##### [rolling-rate-limiter](https://www.npmjs.com/package/rolling-rate-limiter)
 
--   **version**: ^0.2.13
+-   **version**: ^0.3.0
 -   **description**: used to limit network requests
 
 ##### [semver](https://www.npmjs.com/package/semver)
 
--   **version**: ^7.3.7
+-   **version**: ^7.3.8
 -   **description**: used to compare ot-node versions during auto update
 
 ##### [sequelize](https://www.npmjs.com/package/sequelize)
 
--   **version**: ^6.21.4
+-   **version**: ^6.24.0
 -   **description**: used to communicate with sql repository
-
-##### [multiformats](https://www.npmjs.com/package/multiformats)
-
--   **version**: ^9.8.1
--   **description**: calculate sha256 hash of peerIds (libp2p find nodes operation)
-
-##### [mysql2](https://www.npmjs.com/package/mysql2)
--   **version**: ^2.3.3
--   **description**:
 
 ##### [toobusy-js](https://www.npmjs.com/package/toobusy-js)
 
@@ -380,15 +378,10 @@
 
 ##### [uuid](https://www.npmjs.com/package/uuid)
 
--   **version**: ^8.3.2
+-   **version**: ^9.0.0
 -   **description**: uuid generation
 
 ##### [web3](https://www.npmjs.com/package/web3)
 
--   **version**: ^1.7.5
+-   **version**: ^1.8.0
 -   **description**: used to interact with evm smart contracts
-
-##### [workerpool](https://www.npmjs.com/package/workerpool)
-
--   **version**: ^6.2.1
--   **description**: offload cpu intensive work
