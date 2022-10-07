@@ -55,7 +55,6 @@ class Libp2pService {
         if (this.config.bootstrap.length > 0) {
             initializationObject.peerDiscovery = [
                 new Bootstrap({
-                    interval: 60e3,
                     list: this.config.bootstrap,
                 }),
             ];
@@ -285,10 +284,12 @@ class Libp2pService {
                 (source) => filter(source, (event) => event.name === 'FINAL_PEER'),
                 (source) => map(source, async (event) => event.peer),
                 (source) =>
-                    each(source, async (peer) => {
+                    filter(source, async (peer) => {
                         if (!peersSeen.has(peer.id)) {
                             peersSeen.add(peer.id);
+                            return true;
                         }
+                        return false;
                     }),
             ),
         );
