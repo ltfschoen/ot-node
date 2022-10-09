@@ -101,7 +101,7 @@
 
 ##### [@chainsafe/libp2p-noise](https://www.npmjs.com/package/@chainsafe/libp2p-noise)
 
--   **version**: ^8.0.1
+-   **version**: ^9.0.0
 -   **description**: libp2p connection encription module
 
 ##### [@comunica/query-sparql](https://www.npmjs.com/package/@comunica/query-sparql)
@@ -111,7 +111,7 @@
 
 ##### [@libp2p/bootstrap](https://www.npmjs.com/package/@libp2p/bootstrap)
 
--   **version**: ^3.0.0
+-   **version**: ^4.0.0
 -   **description**: used to connect to list of boostraps
 
 ##### [@libp2p/crypto](https://www.npmjs.com/package/@libp2p/crypto)
@@ -122,7 +122,7 @@
 
 ##### [@libp2p/mplex](https://www.npmjs.com/package/@libp2p/mplex)
 
--   **version**: ^5.2.4
+-   **version**: ^6.0.2
 -   **description**: libp2p stream multiplexer module
 
 ##### [@libp2p/peer-collections](https://www.npmjs.com/package/@libp2p/peer-collections)
@@ -137,7 +137,7 @@
 
 ##### [@libp2p/tcp](https://www.npmjs.com/package/@libp2p/tcp)
 
--   **version**: ^3.1.2
+-   **version**: ^4.0.1
 -   **description**: libp2p TCP module
 
 ##### [@multiformats/multiaddr](https://www.npmjs.com/package/@multiformats/multiaddr)
