@@ -2,11 +2,11 @@
 import { createLibp2p } from 'libp2p';
 import { sha256 } from 'multiformats/hashes/sha2';
 import { multiaddr } from '@multiformats/multiaddr';
-import { Bootstrap } from '@libp2p/bootstrap';
-import { Mplex } from '@libp2p/mplex';
+import { bootstrap } from '@libp2p/bootstrap';
+import { mplex } from '@libp2p/mplex';
 import { Noise } from '@chainsafe/libp2p-noise';
-import { KadDHT } from '@tracelabs/kad-dht';
-import { TCP } from '@libp2p/tcp';
+import { kadDHT } from '@libp2p/kad-dht';
+import { tcp } from '@libp2p/tcp';
 import { pipe } from 'it-pipe';
 import * as lp from 'it-length-prefixed';
 import { unmarshalPrivateKey } from '@libp2p/crypto/keys';
@@ -38,9 +38,9 @@ import {
 } from '../../../constants/constants.js';
 
 const initializationObject = {
-    streamMuxers: [new Mplex()],
-    connectionEncryption: [new Noise()],
-    transports: [new TCP()],
+    streamMuxers: [mplex()],
+    connectionEncryption: [() => new Noise()],
+    transports: [tcp()],
 };
 
 class Libp2pService {
@@ -54,7 +54,7 @@ class Libp2pService {
 
         if (this.config.bootstrap.length > 0) {
             initializationObject.peerDiscovery = [
-                new Bootstrap({
+                bootstrap({
                     list: this.config.bootstrap,
                 }),
             ];
@@ -135,7 +135,7 @@ class Libp2pService {
         )
             throw Error(`Invalid dht type found in config. Allowed dht types: ${dhtTypes}`);
 
-        const dualKadDht = new KadDHT({ kBucketSize: dhtConfig?.kBucketSize, clientMode: false });
+        const dualKadDht = kadDHT({ kBucketSize: dhtConfig?.kBucketSize, clientMode: false });
         this.dhtType = dhtConfig.type.toLowerCase();
 
         if (this.dhtType === DHT_TYPES.WAN) return dualKadDht.wan;
