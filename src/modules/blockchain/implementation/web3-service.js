@@ -14,10 +14,10 @@ const ProfileStorage = require('dkg-evm-module/build/contracts/ProfileStorage.js
 const ShardingTable = require('dkg-evm-module/build/contracts/ShardingTable.json');
 
 class Web3Service {
-    async initialize(ctx) {
-        this.config = ctx.config;
-        this.logger = ctx.logger;
-        this.eventEmitter = ctx.eventEmitter;
+    async initialize(config, logger) {
+        this.config = config;
+        this.logger = logger;
+        // this.eventEmitter = ctx.eventEmitter;
 
         this.rpcNumber = 0;
         await this.initializeWeb3();
@@ -104,10 +104,21 @@ class Web3Service {
             ShardingTable.abi,
             shardingTableAddress,
         );
+        const shardingTable = new Map();
+        shardingTable.set('QmU12cgaJpeaaU4xRC5n95r52AiFTqGdtCaEgnzn9ytpxu', [10000, 0.1]);
+        shardingTable.set('QmXJ8AoFpUBnKHswyANnANmnE9T48xBq5geD4U9KjngKy3', [49000, 0.112312]);
+        shardingTable.set('QmajtBnsXmXqRC2oNhbcWqRgJ8o5prMr1Tscxnv11YHeo3', [31322, 0.1]);
+        shardingTable.set('QmWx3AbppQLpo3N8HvXNVG93uVrzvhBq2HWMJBeu4QxhNy', [11230, 0.3]);
+        shardingTable.set('QmYcMXMw2Uj71RraH4xezAaVFpisCY4FBZUSc1xEnBUWQK', [31000, 1.1]);
+        shardingTable.set('QmXbMc3Kpyv5XL8hQvws8xgJwshsNz8PezxL8XCni12wXb', [15456, 0.6]);
+        shardingTable.set('QmY3EptiY5Kr5nrB93DtAPgzhyhAjAi4jYHUiS2ynZowa7', [10000, 0.1]);
+        shardingTable.set('QmciLYezwcEhJiCzqFZ7rTnjDgyYBQ7Tu3FwgFoKE6mzUu', [20000, 0.2]);
+        shardingTable.set('QmRnyWLU5E7vWSZ1353gbfQ4zSXLLX97QA6dC9rKn2iNAy', [30000, 0.34]);
+        shardingTable.set('QmYnwndBzaXWFzPWYazZPo46VC2DkMGdPvwfZTefNM4TZw', [40000, 0.1]);
 
-        ['PeerObjCreated', 'PeerParamsUpdated', 'PeerRemoved'].forEach((eventName) => {
-            this.subscribeToContractEvent(this.ShardingTableContract, eventName);
-        });
+        // ['PeerObjCreated', 'PeerParamsUpdated', 'PeerRemoved'].forEach((eventName) => {
+        //     this.subscribeToContractEvent(this.ShardingTableContract, eventName);
+        // });
 
         if (this.identityExists()) {
             this.identityContract = new this.web3.eth.Contract(Identity.abi, this.getIdentity());
@@ -286,42 +297,42 @@ class Web3Service {
         return result;
     }
 
-    async subscribeToContractEvent(contract, eventName) {
-        contract.events[eventName](
-            {
-                fromBlock: 'pending', // block number to start listening from
-            },
-            () => {},
-        )
-            .on('connected', (subscriptionId) => {
-                // fired after subscribing to an event
-                this.logger.debug(
-                    `Subscribed to '${eventName}' event. Subscription ID: '${subscriptionId}'`,
-                );
-            })
-            .on('data', (event) => {
-                // fired when we get a new log that matches the filters for the
-                // event type we subscribed to will be fired at the same moment
-                // as the callback above
-                this.eventEmitter.emit(eventName, event.returnValues);
-            })
-            .on('changed', (event) => {
-                // fired when the event is removed from the blockchain
-                // (it adds this property on the event: removed = true
-                this.logger.warn(
-                    `Event '${eventName}' has been removed from the blockchain.
-                Event: ${event}`,
-                );
-            })
-            .on('error', (error, receipt) => {
-                // fired if the subscribe transaction was rejected by the network
-                // with a receipt, the second parameter will be the receipt.
-                this.logger.error(
-                    `Error: ${error}
-                Receipt: ${receipt}`,
-                );
-            });
-    }
+    // async subscribeToContractEvent(contract, eventName) {
+    //     contract.events[eventName](
+    //         {
+    //             fromBlock: 'pending', // block number to start listening from
+    //         },
+    //         () => {},
+    //     )
+    //         .on('connected', (subscriptionId) => {
+    //             // fired after subscribing to an event
+    //             this.logger.debug(
+    //                 `Subscribed to '${eventName}' event. Subscription ID: '${subscriptionId}'`,
+    //             );
+    //         })
+    //         .on('data', (event) => {
+    //             // fired when we get a new log that matches the filters for the
+    //             // event type we subscribed to will be fired at the same moment
+    //             // as the callback above
+    //             this.eventEmitter.emit(eventName, event.returnValues);
+    //         })
+    //         .on('changed', (event) => {
+    //             // fired when the event is removed from the blockchain
+    //             // (it adds this property on the event: removed = true
+    //             this.logger.warn(
+    //                 `Event '${eventName}' has been removed from the blockchain.
+    //             Event: ${event}`,
+    //             );
+    //         })
+    //         .on('error', (error, receipt) => {
+    //             // fired if the subscribe transaction was rejected by the network
+    //             // with a receipt, the second parameter will be the receipt.
+    //             this.logger.error(
+    //                 `Error: ${error}
+    //             Receipt: ${receipt}`,
+    //             );
+    //         });
+    // }
 
     async deployContract(contract, args) {
         let result;

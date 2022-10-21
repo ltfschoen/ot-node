@@ -124,7 +124,7 @@ class BlockchainModuleManager extends BaseModuleManager {
 
     async getShardingTableFull(blockchain) {
         if (this.getImplementation(blockchain)) {
-            return this.getImplementation(blockchain).module.getShardingTable();
+            return this.getImplementation(blockchain).module.getShardingTableFull();
         }
     }
 
