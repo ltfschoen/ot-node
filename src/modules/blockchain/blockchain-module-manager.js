@@ -115,7 +115,7 @@ class BlockchainModuleManager extends BaseModuleManager {
 
     async getShardingTablePage(blockchain, startingPeerId, nodesNum) {
         if (this.getImplementation(blockchain)) {
-            return this.getImplementation(blockchain).module.getShardingTable(
+            return this.getImplementation(blockchain).module.getShardingTablePage(
                 startingPeerId,
                 nodesNum,
             );

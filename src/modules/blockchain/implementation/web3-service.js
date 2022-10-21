@@ -124,7 +124,6 @@ class Web3Service {
                 value[0],
             ]);
         }
-
         // ['PeerObjCreated', 'PeerParamsUpdated', 'PeerRemoved'].forEach((eventName) => {
         //     this.subscribeToContractEvent(this.ShardingTableContract, eventName);
         // });
