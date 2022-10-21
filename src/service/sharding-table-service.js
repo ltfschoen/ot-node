@@ -8,14 +8,15 @@ class ShardingTableService {
         this.eventEmitter = ctx.eventEmitter;
     }
 
-    initialize(blockchain) {
-        this.pullBlockchainShardingTable(blockchain);
+    async initialize(blockchain) {
+        await this.pullBlockchainShardingTable(blockchain); // promise ignored....
         this.listenOnEvents();
     }
 
-    pullBlockchainShardingTable(blockchain) {
-        const shardingTable = this.blockchainModuleManager.getShardingTableFull(blockchain);
+    async pullBlockchainShardingTable(blockchain) {
+        const shardingTable = await this.blockchainModuleManager.getShardingTableFull(blockchain);
 
+        console.log('SHARDING TABLE FROM BLOCKCHAIN: ', shardingTable);
         // option 1
         // TODO: Find IP addresses
         const multiaddresses = this.networkModuleManager.getPeerStoreIpAddresses();

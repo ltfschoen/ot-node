@@ -105,16 +105,25 @@ class Web3Service {
             shardingTableAddress,
         );
         const shardingTable = new Map();
-        shardingTable.set('QmU12cgaJpeaaU4xRC5n95r52AiFTqGdtCaEgnzn9ytpxu', [10000, 0.1]);
-        shardingTable.set('QmXJ8AoFpUBnKHswyANnANmnE9T48xBq5geD4U9KjngKy3', [49000, 0.112312]);
-        shardingTable.set('QmajtBnsXmXqRC2oNhbcWqRgJ8o5prMr1Tscxnv11YHeo3', [31322, 0.1]);
-        shardingTable.set('QmWx3AbppQLpo3N8HvXNVG93uVrzvhBq2HWMJBeu4QxhNy', [11230, 0.3]);
-        shardingTable.set('QmYcMXMw2Uj71RraH4xezAaVFpisCY4FBZUSc1xEnBUWQK', [31000, 1.1]);
-        shardingTable.set('QmXbMc3Kpyv5XL8hQvws8xgJwshsNz8PezxL8XCni12wXb', [15456, 0.6]);
-        shardingTable.set('QmY3EptiY5Kr5nrB93DtAPgzhyhAjAi4jYHUiS2ynZowa7', [10000, 0.1]);
-        shardingTable.set('QmciLYezwcEhJiCzqFZ7rTnjDgyYBQ7Tu3FwgFoKE6mzUu', [20000, 0.2]);
-        shardingTable.set('QmRnyWLU5E7vWSZ1353gbfQ4zSXLLX97QA6dC9rKn2iNAy', [30000, 0.34]);
-        shardingTable.set('QmYnwndBzaXWFzPWYazZPo46VC2DkMGdPvwfZTefNM4TZw', [40000, 0.1]);
+        shardingTable.set('QmU12cgaJpeaaU4xRC5n95r52AiFTqGdtCaEgnzn9ytpxu', [10000, 1]);
+        shardingTable.set('QmXJ8AoFpUBnKHswyANnANmnE9T48xBq5geD4U9KjngKy3', [49000, 1]);
+        shardingTable.set('QmajtBnsXmXqRC2oNhbcWqRgJ8o5prMr1Tscxnv11YHeo3', [31322, 1]);
+        shardingTable.set('QmWx3AbppQLpo3N8HvXNVG93uVrzvhBq2HWMJBeu4QxhNy', [11230, 1]);
+        shardingTable.set('QmYcMXMw2Uj71RraH4xezAaVFpisCY4FBZUSc1xEnBUWQK', [31000, 1]);
+        shardingTable.set('QmXbMc3Kpyv5XL8hQvws8xgJwshsNz8PezxL8XCni12wXb', [15456, 1]);
+        shardingTable.set('QmY3EptiY5Kr5nrB93DtAPgzhyhAjAi4jYHUiS2ynZowa7', [10000, 1]);
+        shardingTable.set('QmciLYezwcEhJiCzqFZ7rTnjDgyYBQ7Tu3FwgFoKE6mzUu', [20000, 1]);
+        shardingTable.set('QmRnyWLU5E7vWSZ1353gbfQ4zSXLLX97QA6dC9rKn2iNAy', [30000, 1]);
+        shardingTable.set('QmYnwndBzaXWFzPWYazZPo46VC2DkMGdPvwfZTefNM4TZw', [40000, 1]);
+
+        for (const [key, value] of shardingTable) {
+            /* eslint-disable no-await-in-loop */
+            await this.callContractFunction(this.ShardingTableContract, 'pushBack', [
+                key,
+                value[1],
+                value[0],
+            ]);
+        }
 
         // ['PeerObjCreated', 'PeerParamsUpdated', 'PeerRemoved'].forEach((eventName) => {
         //     this.subscribeToContractEvent(this.ShardingTableContract, eventName);
